@@ -1,22 +1,15 @@
-import {
-  MySqlMigrationClient,
-  PostgresMigrationClient,
-  SqLiteMigrationClient,
-} from "../clients/mod.ts";
 import { MODULE_NAME } from "../mod.ts";
 
 export function getConfigTemplate(): string {
-  return `import {
-  ${MySqlMigrationClient.name},
-  ${PostgresMigrationClient.name},
-  ${SqLiteMigrationClient.name},
-  NessieConfig,
-} from "${MODULE_NAME}";
+  return `import { NessieConfig } from "${MODULE_NAME}";
+import { MySqlMigrationClient } from "${MODULE_NAME}/mysql";
+import { PostgresMigrationClient } from "${MODULE_NAME}/postgres";
+import { SqLiteMigrationClient } from "${MODULE_NAME}/sqlite";
 
 /** Select one of the supported clients */
-// const client = new ${PostgresMigrationClient.name}("postgres://root:pwd@localhost:5432/nessie");
-// const client = new ${MySqlMigrationClient.name}("mysql://root@0.0.0.0:3306/nessie");
-// const client = new ${SqLiteMigrationClient.name}("./sqlite.db");
+// const client = new PostgresMigrationClient({ clientOptions: [ "postgres://root:pwd@localhost:5432/nessie" ] });
+// const client = new MySqlMigrationClient({ clientOptions: [ "mysql://root@0.0.0.0:3306/nessie" ] });
+// const client = new SqLiteMigrationClient({ clientOptions: [ "./sqlite.db" ] });
 
 /** This is the final config object */
 const config: NessieConfig = {

@@ -1,8 +1,8 @@
 import {
   AbstractMigration,
   AbstractSeed,
-  MigrationClient,
-  PostgresMigrationClient,
+  type MigrationClient,
+  type PostgresMigrationClient,
 } from "../mod.ts";
 
 // This is a custom abstract migration class which can be used in the migration files

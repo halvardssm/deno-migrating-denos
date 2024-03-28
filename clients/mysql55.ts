@@ -1,7 +1,7 @@
 import {
   MySqlMigrationClient,
-  MySqlMigrationClientOptions,
-} from "./mysql-migration-client.ts";
+  type MySqlMigrationClientOptions,
+} from "./mysql.ts";
 
 /** MySQL 5.5 client */
 export class MySql55MigrationClient extends MySqlMigrationClient {

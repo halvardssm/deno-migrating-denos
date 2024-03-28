@@ -1,5 +1,5 @@
 import {
-  LoggerFn,
+  type LoggerFn,
   MAX_FILE_NAME_LENGTH,
   REGEXP_MIGRATION_FILE_NAME,
 } from "../mod.ts";

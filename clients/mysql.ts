@@ -1,5 +1,8 @@
-import { InheritedMigrationClientOptions, MigrationClient } from "../mod.ts";
-import { MySqlConnection } from "@db/sqlx";
+import {
+  type InheritedMigrationClientOptions,
+  MigrationClient,
+} from "../lib/mod.ts";
+import { MySqlConnection } from "@db/sqlx/mysql";
 
 export type MySqlMigrationClientOptions = InheritedMigrationClientOptions<
   typeof MySqlConnection
@@ -16,9 +19,7 @@ export class MySqlMigrationClient
   constructor(options: MySqlMigrationClientOptions) {
     super({
       dialect: "mysql",
-      client: Array.isArray(options.client)
-        ? new MySqlConnection(...options.client)
-        : options.client,
+      client: options.client ?? new MySqlConnection(...options.clientOptions!),
       queries: {
         migrationTableExists: (ctx) =>
           `SELECT * FROM information_schema.tables WHERE table_name = '${ctx.table}' LIMIT 1;`,

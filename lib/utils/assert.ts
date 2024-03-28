@@ -1,5 +1,5 @@
 import { assert, assertEquals, assertStringIncludes } from "@std/assert";
-import { exists, ExistsOptions } from "@std/fs";
+import { exists, type ExistsOptions } from "@std/fs";
 
 export interface AssertCommandOutputResult
   extends Omit<Deno.CommandOutput, "stdout" | "stderr"> {

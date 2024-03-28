@@ -1,5 +1,8 @@
-import { InheritedMigrationClientOptions, MigrationClient } from "../mod.ts";
-import { PostgresConnection } from "@db/sqlx";
+import {
+  type InheritedMigrationClientOptions,
+  MigrationClient,
+} from "../lib/mod.ts";
+import { PostgresConnection } from "@db/sqlx/postgres";
 
 export type PostgresMigrationClientOptions = InheritedMigrationClientOptions<
   typeof PostgresConnection
@@ -13,9 +16,8 @@ export class PostgresMigrationClient
   constructor(options: PostgresMigrationClientOptions) {
     super({
       dialect: "postgres",
-      client: Array.isArray(options.client)
-        ? new PostgresConnection(...options.client)
-        : options.client,
+      client: options.client ??
+        new PostgresConnection(...options.clientOptions!),
       queries: {
         migrationTableExists: (ctx) =>
           `SELECT * FROM information_schema.tables WHERE table_name = '${ctx.table}' LIMIT 1;`,

@@ -1,4 +1,4 @@
-import { Context, PostgresMigrationClient } from "../mod.ts";
+import type { Context, PostgresMigrationClient } from "../mod.ts";
 // I can import what I want to be used in this template
 import { CustomAbstractMigration } from "./abstract-classes-extended.ts";
 

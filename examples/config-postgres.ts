@@ -1,4 +1,4 @@
-import { NessieConfig, PostgresMigrationClient } from "../mod.ts";
+import { type NessieConfig, PostgresMigrationClient } from "../mod.ts";
 
 const config: NessieConfig = {
   client: new PostgresMigrationClient({

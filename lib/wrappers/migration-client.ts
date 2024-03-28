@@ -1,20 +1,23 @@
 import {
-  AbstractMigration,
-  AbstractMigrationProps,
-  AbstractSeed,
-  AbstractSeedProps,
-  AmountMigrateT,
-  AmountRollbackT,
-  Context,
-  FileEntryT,
+  type AbstractMigration,
+  type AbstractMigrationProps,
+  type AbstractSeed,
+  type AbstractSeedProps,
+  type AmountMigrateT,
+  type AmountRollbackT,
+  type Context,
+  type FileEntryT,
   getDurationFromTimestamp,
-  LoggerFn,
+  type LoggerFn,
   MAX_FILE_NAME_LENGTH,
   NessieError,
 } from "../mod.ts";
 import { green } from "@std/fmt/colors";
-import { AbstractConnection, Row } from "@db/sqlx";
-import { RequiredPartialBy } from "@halvardm/js-helpers";
+import type { AbstractConnection, Row } from "@db/sqlx";
+import type {
+  RequireAtLeastOne,
+  RequiredPartialBy,
+} from "@halvardm/js-helpers";
 
 /**
  * Internal helper type for the connection instance.
@@ -26,8 +29,9 @@ type AbstractConnectionInstance = AbstractConnection<any, any, any, any>;
  * Internal helper type for the connection instance class.
  */
 type AbstractConnectionClass = new (
+  connectionUrl: string,
   // deno-lint-ignore no-explicit-any
-  ...args: any
+  connectionOptions: any,
 ) => AbstractConnectionInstance;
 
 /**
@@ -154,18 +158,29 @@ export type InheritedMigrationClientOptions<
     >,
     "client" | "queries"
   >
-  & {
+  & RequireAtLeastOne<{
     /**
      * The client to be used by the migration client.
-     * Optionally, it takes the constructor parameters for the client as an array.
+     * This is an alternative to passing the clientOptions.
      *
      * @example
      * ```ts
-     * const client = new PostgresConnection({ client: new PostgresConnection("url", connectionOptions) });
-     * const client = new PostgresConnection({ client: ["url", connectionOptions] });
+     * new MigrationClient({ client: new PostgresConnection("url", connectionOptions) });
      * ```
      */
-    client: InstanceType<Client> | ConstructorParameters<Client>;
+    client?: InstanceType<Client>;
+    /**
+     * The client options to be passed to a new migration client.
+     * This is an alternative to passing a client.
+     *
+     * @example
+     * ```ts
+     * new MigrationClient({ clientOptions: ["url", connectionOptions] });
+     * ```
+     */
+    clientOptions?: ConstructorParameters<Client>;
+  }>
+  & {
     /**
      * Dialect specific queries to be used by the migration client. Overrides the default queries.
      */

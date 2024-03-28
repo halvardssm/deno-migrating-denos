@@ -1,4 +1,4 @@
-import { MySqlMigrationClient, NessieConfig } from "../mod.ts";
+import { MySqlMigrationClient, type NessieConfig } from "../mod.ts";
 
 const config: NessieConfig = {
   client: new MySqlMigrationClient({

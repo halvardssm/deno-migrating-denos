@@ -1,9 +1,9 @@
 import { dirname, fromFileUrl, resolve } from "@std/path";
-import { SqLiteMigrationClient } from "../../mod.ts";
+import { SqLiteMigrationClient } from "../../clients/sqlite.ts";
 
 export default {
   client: new SqLiteMigrationClient({
-    client: ["./tests/data/sqlite.db"],
+    clientOptions: ["./tests/data/sqlite.db"],
   }),
   migrationFolders: [
     resolve(dirname(fromFileUrl(new URL(import.meta.url))), "sqlite1"),

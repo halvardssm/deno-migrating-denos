@@ -1,4 +1,8 @@
-import { AbstractSeed, Context, PostgresMigrationClient } from "../mod.ts";
+import {
+  AbstractSeed,
+  type Context,
+  type PostgresMigrationClient,
+} from "../mod.ts";
 
 export default class extends AbstractSeed<PostgresMigrationClient> {
   async run(_ctx: Context): Promise<void> {

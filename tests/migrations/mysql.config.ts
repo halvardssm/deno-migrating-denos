@@ -1,9 +1,9 @@
 import { dirname, fromFileUrl, resolve } from "@std/path";
-import { MySqlMigrationClient } from "../../mod.ts";
+import { MySqlMigrationClient } from "../../clients/mysql.ts";
 
 export default {
   client: new MySqlMigrationClient({
-    client: ["mysql://root@0.0.0.0:5101/nessie"],
+    clientOptions: ["mysql://root@0.0.0.0:5101/nessie"],
   }),
   migrationFolders: [
     resolve(dirname(fromFileUrl(new URL(import.meta.url))), "mysql1"),

@@ -1,6 +1,6 @@
 import {
   isMigrationFile,
-  NessieConfig,
+  type NessieConfig,
   SqLiteMigrationClient,
 } from "../mod.ts";
 

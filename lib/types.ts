@@ -1,4 +1,4 @@
-import { MigrationClient } from "./mod.ts";
+import type { MigrationClient } from "./mod.ts";
 
 /** Exposed object in migration files. available in `up`/`down` methods.
  * queryBuilder is available when passing `exposeQueryBuilder: true` to the config file.

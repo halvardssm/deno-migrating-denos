@@ -6,18 +6,18 @@ import {
   arrayIsUnique,
   DEFAULT_MIGRATION_FOLDER,
   DEFAULT_SEED_FOLDER,
-  FileEntryT,
+  type FileEntryT,
   getLogger,
   getMigrationTemplate,
   getSeedTemplate,
   isFileUrl,
   isMigrationFile,
   isUrl,
-  LoggerFn,
-  NessieConfig,
+  type LoggerFn,
+  type NessieConfig,
   NessieError,
   REGEXP_FILE_NAME,
-  StateOptions,
+  type StateOptions,
 } from "../mod.ts";
 
 export type StateInitOptions = {

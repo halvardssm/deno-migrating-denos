@@ -49,6 +49,9 @@ describe("integration cli", () => {
 
       const imports: Record<string, string> = {
         "@halvardm/nessie": "../../mod.ts",
+        "@halvardm/nessie/mysql": "../../clients/mysql.ts",
+        "@halvardm/nessie/postgres": "../../clients/postgres.ts",
+        "@halvardm/nessie/sqlite": "../../clients/sqlite.ts",
       };
 
       for (const [key, value] of Object.entries(configFile.imports)) {

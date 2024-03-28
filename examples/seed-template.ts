@@ -1,4 +1,4 @@
-import { Context } from "../mod.ts";
+import type { Context } from "../mod.ts";
 // I can import what I want to be used in this template
 import { CustomAbstractSeed } from "./abstract-classes-extended.ts";
 

@@ -3,13 +3,13 @@ import { green } from "@std/fmt/colors";
 import { resolve } from "@std/path";
 import { exists } from "@std/fs";
 import {
-  ArgumentValue,
+  type ArgumentValue,
   Command,
   CompletionsCommand,
   EnumType,
   HelpCommand,
-  NumberType,
-  StringType,
+  type NumberType,
+  type StringType,
   Type,
   ValidationError,
 } from "@cliffy/command";
