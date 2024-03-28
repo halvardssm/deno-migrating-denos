@@ -1,9 +1,9 @@
 import type { KeyCode } from "../keycode/key_code.ts";
 import {
   GenericInput,
-  GenericInputKeys,
-  GenericInputPromptOptions,
-  GenericInputPromptSettings,
+  type GenericInputKeys,
+  type GenericInputPromptOptions,
+  type GenericInputPromptSettings,
 } from "./_generic_input.ts";
 import {
   bold,

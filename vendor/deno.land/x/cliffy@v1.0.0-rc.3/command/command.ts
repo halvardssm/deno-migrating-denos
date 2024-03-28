@@ -35,7 +35,7 @@ import {
   UnknownCommandError,
   ValidationError,
 } from "./_errors.ts";
-import { Merge, OneOf, ValueOf } from "./_type_utils.ts";
+import type { Merge, OneOf, ValueOf } from "./_type_utils.ts";
 import { BooleanType } from "./types/boolean.ts";
 import { FileType } from "./types/file.ts";
 import { IntegerType } from "./types/integer.ts";
@@ -43,7 +43,7 @@ import { NumberType } from "./types/number.ts";
 import { StringType } from "./types/string.ts";
 import { Type } from "./type.ts";
 import { HelpGenerator, type HelpOptions } from "./help/_help_generator.ts";
-import {
+import type {
   MapTypes,
   MapValue,
   MergeOptions,
@@ -2294,7 +2294,7 @@ export class Command<
   }
 
   /** Check if command has arguments. */
-  public hasArguments():boolean {
+  public hasArguments(): boolean {
     return !!this.argsDefinition;
   }
 
@@ -2317,7 +2317,7 @@ export class Command<
   }
 
   /** Get auto generated command usage. */
-  public getUsage():string {
+  public getUsage(): string {
     return this._usage ??
       [this.getArgsDefinition(), this.getRequiredOptionsDefinition()]
         .join(" ")

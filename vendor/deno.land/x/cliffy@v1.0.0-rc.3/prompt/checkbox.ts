@@ -1,17 +1,17 @@
 import type { KeyCode } from "../keycode/mod.ts";
-import { WidenType } from "./_utils.ts";
+import type { WidenType } from "./_utils.ts";
 import { brightBlue, dim, green, red } from "./deps.ts";
 import { Figures, getFiguresByKeys } from "./_figures.ts";
 import {
   GenericList,
-  GenericListKeys,
-  GenericListOption,
-  GenericListOptionGroup,
-  GenericListOptionGroupSettings,
-  GenericListOptions,
-  GenericListOptionSettings,
-  GenericListSeparatorOption,
-  GenericListSettings,
+  type GenericListKeys,
+  type GenericListOption,
+  type GenericListOptionGroup,
+  type GenericListOptionGroupSettings,
+  type GenericListOptions,
+  type GenericListOptionSettings,
+  type GenericListSeparatorOption,
+  type GenericListSettings,
   isOption,
   isOptionGroup,
 } from "./_generic_list.ts";

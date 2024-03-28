@@ -1,12 +1,12 @@
 // deno-lint-ignore-file no-explicit-any ban-types
 
-import { Tty, tty } from "../ansi/tty.ts";
+import { type Tty, tty } from "../ansi/tty.ts";
 import {
   GenericPrompt,
-  GenericPromptOptions,
-  InferPromptOptions,
-  InferPromptValue,
-  StaticGenericPrompt,
+  type GenericPromptOptions,
+  type InferPromptOptions,
+  type InferPromptValue,
+  type StaticGenericPrompt,
 } from "./_generic_prompt.ts";
 import type { Select, SelectOptions } from "./select.ts";
 import type { Checkbox, CheckboxOptions } from "./checkbox.ts";

@@ -1,6 +1,6 @@
 import type { Cursor } from "../ansi/cursor_position.ts";
-import { Tty, tty } from "../ansi/tty.ts";
-import { KeyCode, parse } from "../keycode/key_code.ts";
+import { type Tty, tty } from "../ansi/tty.ts";
+import { type KeyCode, parse } from "../keycode/key_code.ts";
 import {
   bold,
   brightBlue,

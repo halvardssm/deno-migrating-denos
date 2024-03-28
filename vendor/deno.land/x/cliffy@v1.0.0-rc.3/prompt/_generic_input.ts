@@ -1,9 +1,9 @@
 import type { KeyCode } from "../keycode/key_code.ts";
 import {
   GenericPrompt,
-  GenericPromptKeys,
-  GenericPromptOptions,
-  GenericPromptSettings,
+  type GenericPromptKeys,
+  type GenericPromptOptions,
+  type GenericPromptSettings,
 } from "./_generic_prompt.ts";
 import { brightBlue, dim, stripColor, underline } from "./deps.ts";
 

@@ -1,11 +1,11 @@
 import type { KeyCode } from "../keycode/key_code.ts";
 import {
   GenericInput,
-  GenericInputKeys,
-  GenericInputPromptOptions,
-  GenericInputPromptSettings,
+  type GenericInputKeys,
+  type GenericInputPromptOptions,
+  type GenericInputPromptSettings,
 } from "./_generic_input.ts";
-import { WidenType } from "./_utils.ts";
+import type { WidenType } from "./_utils.ts";
 import { bold, brightBlue, dim, stripColor, yellow } from "./deps.ts";
 import { Figures, getFiguresByKeys } from "./_figures.ts";
 import { distance } from "../_utils/distance.ts";

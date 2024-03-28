@@ -4,7 +4,7 @@
  * @param length    Max length of all words.
  * @param content   The text content.
  */
-import { Cell, CellType } from "./cell.ts";
+import { Cell, type CellType } from "./cell.ts";
 import { consumeWords } from "./consume_words.ts";
 import { stripColor, unicodeWidth } from "./deps.ts";
 

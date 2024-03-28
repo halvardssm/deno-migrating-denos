@@ -1,4 +1,4 @@
-import { Provider, Versions } from "../provider.ts";
+import { Provider, type Versions } from "../provider.ts";
 import { bold, brightBlue } from "../../deps.ts";
 
 export interface GithubProviderOptions {
