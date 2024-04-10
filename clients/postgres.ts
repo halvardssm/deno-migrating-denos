@@ -2,7 +2,7 @@ import {
   type InheritedMigrationClientOptions,
   MigrationClient,
 } from "../lib/mod.ts";
-import { PostgresConnection } from "@db/sqlx/postgres";
+import { PostgresConnection } from "@db/sqlx/clients/postgres";
 
 export type PostgresMigrationClientOptions = InheritedMigrationClientOptions<
   typeof PostgresConnection

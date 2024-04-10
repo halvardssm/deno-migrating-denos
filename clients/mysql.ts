@@ -2,7 +2,7 @@ import {
   type InheritedMigrationClientOptions,
   MigrationClient,
 } from "../lib/mod.ts";
-import { MySqlConnection } from "@db/sqlx/mysql";
+import { MySqlConnection } from "@db/sqlx/clients/mysql";
 
 export type MySqlMigrationClientOptions = InheritedMigrationClientOptions<
   typeof MySqlConnection

@@ -2,7 +2,7 @@ import {
   type InheritedMigrationClientOptions,
   MigrationClient,
 } from "../lib/mod.ts";
-import { SqLiteConnection } from "@db/sqlx/sqlite";
+import { SqLiteConnection } from "@db/sqlx/clients/sqlite";
 
 export type SqLiteMigrationClientOptions = InheritedMigrationClientOptions<
   typeof SqLiteConnection

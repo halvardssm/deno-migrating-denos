@@ -13,7 +13,16 @@ import {
   NessieError,
 } from "../mod.ts";
 import { green } from "@std/fmt/colors";
-import type { AbstractConnection, Row } from "@db/sqlx";
+import type {
+  Row,
+  SqlxConnection,
+  SqlxConnectionEventType,
+  SqlxConnectionOptions,
+  SqlxParameterType,
+  SqlxQueryOptions,
+  SqlxTransactionOptions,
+  SqlxTransactionQueriable,
+} from "@db/sqlx";
 import type {
   RequireAtLeastOne,
   RequiredPartialBy,
@@ -22,17 +31,26 @@ import type {
 /**
  * Internal helper type for the connection instance.
  */
-// deno-lint-ignore no-explicit-any
-type AbstractConnectionInstance = AbstractConnection<any, any, any, any>;
+type DefaultSqlxConnection = SqlxConnection<
+  SqlxParameterType,
+  SqlxConnectionOptions,
+  SqlxQueryOptions,
+  SqlxTransactionOptions,
+  SqlxTransactionQueriable<
+    SqlxParameterType,
+    SqlxQueryOptions,
+    SqlxTransactionOptions
+  >,
+  SqlxConnectionEventType
+>;
 
 /**
  * Internal helper type for the connection instance class.
  */
-type AbstractConnectionClass = new (
+type ConnectionClass = new (
   connectionUrl: string,
-  // deno-lint-ignore no-explicit-any
-  connectionOptions: any,
-) => AbstractConnectionInstance;
+  connectionOptions: SqlxConnectionOptions,
+) => DefaultSqlxConnection;
 
 /**
  * The context for the migration table query.
@@ -126,7 +144,7 @@ export type MigrationClientQueries = {
  * The options for the migration client.
  */
 export interface MigrationClientOptions<
-  Client extends AbstractConnectionInstance,
+  Client extends DefaultSqlxConnection,
 > {
   /**
    * The dialect of the migration client.
@@ -150,7 +168,7 @@ export interface MigrationClientOptions<
  * Used by inherited classes as these should be set by the inheriting class.
  */
 export type InheritedMigrationClientOptions<
-  Client extends AbstractConnectionClass,
+  Client extends ConnectionClass,
 > =
   & Omit<
     Partial<
@@ -193,7 +211,7 @@ export type InheritedMigrationClientOptions<
  * This class is meant to be inherited by the dialect specific migration clients.
  */
 export class MigrationClient<
-  Client extends AbstractConnectionClass,
+  Client extends ConnectionClass,
 > {
   client: InstanceType<Client>;
   /** Migration files read from the migration folders */
