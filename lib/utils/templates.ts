@@ -2,6 +2,7 @@ import { MODULE_NAME } from "../mod.ts";
 
 export function getConfigTemplate(): string {
   return `import { NessieConfig } from "${MODULE_NAME}";
+import { runNessie } from "${MODULE_NAME}/cli";
 import { MySqlMigrationClient } from "${MODULE_NAME}/mysql";
 import { PostgresMigrationClient } from "${MODULE_NAME}/postgres";
 import { SqLiteMigrationClient } from "${MODULE_NAME}/sqlite";
@@ -19,6 +20,13 @@ const config: NessieConfig = {
 };
 
 export default config;
+
+/**
+ * Run with \`deno run --allow-net --allow-read --allow-write nessie.ts\`
+ */
+if(import.meta.main) {
+  await runNessie(config);
+}
 `;
 }
 
